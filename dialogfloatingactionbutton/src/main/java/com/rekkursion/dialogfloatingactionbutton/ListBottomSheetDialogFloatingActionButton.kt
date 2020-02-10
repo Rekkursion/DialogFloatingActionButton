@@ -3,7 +3,6 @@ package com.rekkursion.dialogfloatingactionbutton
 import android.app.Dialog
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
 import android.widget.AdapterView
 import com.rekkursion.dialogfloatingactionbutton.utils.ListBottomSheetDialog
 
