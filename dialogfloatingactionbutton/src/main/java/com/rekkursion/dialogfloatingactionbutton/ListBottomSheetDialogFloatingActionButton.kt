@@ -3,6 +3,9 @@ package com.rekkursion.dialogfloatingactionbutton
 import android.app.Dialog
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
+import android.widget.AdapterView
+import com.rekkursion.dialogfloatingactionbutton.utils.ListBottomSheetDialog
 
 class ListBottomSheetDialogFloatingActionButton(context: Context, attrs: AttributeSet?):
     DialogFloatingActionButton(context, attrs) {
@@ -16,8 +19,16 @@ class ListBottomSheetDialogFloatingActionButton(context: Context, attrs: Attribu
     /* ============================================================ */
 
     // add a new item by a string
-    fun addItem(itemName: String, index: Int = (mDialog as ListBottomSheetDialog).size) {
-        (mDialog as ListBottomSheetDialog).add(itemName, index)
+    fun addItem(itemName: String,
+                onClickListener: OnClickListener? = null,
+                dismissAfterClicking: Boolean = true,
+                index: Int = (mDialog as ListBottomSheetDialog).size) {
+        (mDialog as ListBottomSheetDialog).add(itemName, onClickListener, dismissAfterClicking, index)
+    }
+
+    // set the listener for clicking a certain item
+    fun setOnItemClickListener(onItemClickListener: AdapterView.OnItemClickListener, dismissAfterClicking: Boolean) {
+        (mDialog as ListBottomSheetDialog).setOnItemClickListener(onItemClickListener, dismissAfterClicking)
     }
 
     /* ============================================================ */

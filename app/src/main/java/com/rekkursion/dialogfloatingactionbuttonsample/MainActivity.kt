@@ -2,7 +2,11 @@ package com.rekkursion.dialogfloatingactionbuttonsample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,16 +16,15 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val t = TextView(this)
-        t.text = "Good"
-        val d = BottomSheetDialog(this)
-        d.setContentView(t)
+        lbsdfab.addItem("first", View.OnClickListener {
+            Toast.makeText(this, "YES! YES! YES!", Toast.LENGTH_SHORT).show()
+        }, true)
 
-        val d2 = AlertDialog.Builder(this).setMessage("Accelerator").create()
-
-        lbsdfab.addItem("first")
         lbsdfab.addItem("second")
         lbsdfab.addItem("third")
-        lbsdfab.addItem("true third", 2)
+
+        lbsdfab.setOnItemClickListener(AdapterView.OnItemClickListener { _, _, index, _ ->
+            AlertDialog.Builder(this).setMessage(index.toString()).show()
+        }, false)
     }
 }
