@@ -14,4 +14,9 @@
             android:src="@android:drawable/ic_input_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+    <com.rekkursion.dialogfloatingactionbutton.ListBottomSheetDialogFloatingActionButton
+            android:id="@+id/lbsdfab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 </androidx.appcompat.widget.LinearLayoutCompat>
